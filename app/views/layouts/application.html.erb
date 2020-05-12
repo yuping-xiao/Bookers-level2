@@ -19,22 +19,35 @@
           <ul class="nav navbar-nav navbar-right">
             <% if user_signed_in? %>
             <li class="">
-              <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+            <%= link_to "Home", show_users_path %>
             </li>
+
             <li class="">
-            <%= link_to '投稿フォーム', new_book_path %>
+            <%= link_to "Users", index_user_path %>
             </li>
+
             <li class="">
-        <!-- ↓以下のコードは、5章で正しいroutingに書き直します。 -->
-            <%= link_to 'マイページ', "#" %>
+            <%= link_to "Books", index_book_path %>
+
+            <li class="">
+              <%= link_to "logout", destroy_user_session_path, method: :delete %>
             </li>
+            
             <% else %>
             <li class="">
-            <%= link_to "新規登録", new_user_registration_path %>
+            <%= link_to "Home", home_top_path %>
             </li>
+
             <li class="">
-            <%= link_to "ログイン", new_user_session_path %>
+            <%= link_to "About", home_about_path %>
+
+            <li class="">
+            <%= link_to "sign up", new_user_registration_path %>
+
+            <li class="">
+            <%= link_to "login", new_user_session_path %>
             </li>
+
             <% end %>
           </ul>
         </nav>

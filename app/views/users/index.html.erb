@@ -1,7 +1,5 @@
 <div class="body">
 	<div class="container">
-		<!-- <p id="notice"></p> -->
-
 		<div class="row">
 
 			<div class="col-xs-3">
@@ -61,27 +59,26 @@
 
 
 			<div class="col-xs-9">
-			<h2>Books</h2>
+			<h2>Users</h2>
 			<table class="table table-hovoer table-inverse">
 				<thead>
 					<tr>
-						<th></th>
-						<th>Title</th>
-						<th>Opinion</th>
+						<th>image</th>
+						<th>name</th>
 						<th colspan="3"></th>
 					</tr>
 				</thead>
 				<tbody>
-					<% @books.each do |book| %>
+					<% @users.each do |user| %>
 					<tr>
 						<td>
 							<%= attachment_image_tag @user, :profile_image, :fill, 60, 60, class: "img-square pull-left profile-thumb", fallback: "no_image.jpg" %>
 						</td>
 						<td>
-							<%= book.title %>
+							<%= user.name %>
 						</td>
 						<td>
-							<%= book.body %>
+							<%= link_to "Show", "#" %>
 						</td>
 					</tr>
 					<% end %>
