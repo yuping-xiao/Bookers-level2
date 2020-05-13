@@ -13,39 +13,57 @@
     <header class="navbar navbar-fixed-top navbar-inverse">
       <div class="container">
         <nav class="nav navbar-nav navbar-left">
-          <span>Bookers</span>
+          <h4><font color="white">Bookers</font></h4>
         </nav>
         <nav>
           <ul class="nav navbar-nav navbar-right">
             <% if user_signed_in? %>
             <li class="">
-            <%= link_to "Home", show_users_path %>
+              <button type="button" class="btn btn-link" aria-label="Left Align"><span class="glyphicon glyphicon-home" aria-hidden="true"></span>
+            <%= link_to "Home", user_path(current_user.id) %></button>
             </li>
 
             <li class="">
-            <%= link_to "Users", index_user_path %>
+              <button type="button" class="btn btn-link" aria-label="Left Align"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+            <%= link_to "Users", users_path %>
+              </button>
             </li>
 
             <li class="">
-            <%= link_to "Books", index_book_path %>
+              <button type="button" class="btn btn-link" aria-label="Left Align"><span class="glyphicon glyphicon-book" aria-hidden="true"></span>
+            <%= link_to "Books", books_path %>
+              </button>
 
             <li class="">
+              <button type="button" class="btn btn-link" aria-label="Left Align"><span class="glyphicon glyphicon-log-out" aria-hidden="true"></span>
               <%= link_to "logout", destroy_user_session_path, method: :delete %>
+              </button>
             </li>
             
             <% else %>
+
             <li class="">
-            <%= link_to "Home", home_top_path %>
+              <button type="button" class="btn btn-link" aria-label="Left Align"><span class="glyphicon glyphicon-home" aria-hidden="true"></span>
+            <%= link_to "Home", root_path %>
+              </button>
             </li>
 
             <li class="">
+              <button type="button" class="btn btn-link" aria-label="Left Align"><span class="glyphicon glyphicon-link" aria-hidden="true"></span>
             <%= link_to "About", home_about_path %>
+              </button>
+            </li>
 
             <li class="">
-            <%= link_to "sign up", new_user_registration_path %>
+              <button type="button" class="btn btn-link" aria-label="Left Align"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+            <%= link_to "Sign up", new_user_registration_path %>
+              </button>
+            </li>
 
             <li class="">
-            <%= link_to "login", new_user_session_path %>
+              <button type="button" class="btn btn-link" aria-label="Left Align"><span class="glyphicon glyphicon-log-in" aria-hidden="true"></span>
+            <%= link_to "Log in", new_user_session_path %>
+              </button>
             </li>
 
             <% end %>
@@ -57,6 +75,18 @@
     <br />
     <br />
 
+    <%= render 'layouts/notifications' %>
+
     <%= yield %>
+
+    <footer>
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-3 col-xs-offset-9">
+            <p>CopyRight Infratop.inc</p>
+          </div>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>

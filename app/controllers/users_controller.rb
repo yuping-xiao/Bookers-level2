@@ -1,15 +1,17 @@
 class UsersController < ApplicationController
-
+  before_action :authenticate_user!
+  
   def show
   		@user = User.find(params[:id])
       #@user = current_user
       @book = Book.new
-      @books = @user.books
+      @books = @user.books # [<book instance>, ...]
   end
 
   def index
-  		@users = User.all
-      @user = User.find(params[:id])
+      @user = current_user
+  		@users = User.all # [<user instance>, ...]
+      @book = Book.new
   end
 
   def edit
@@ -19,7 +21,8 @@ class UsersController < ApplicationController
   def update
   		@user = User.find(params[:id])
   		@user.update(user_params)
-  		redirect_to user_path(@user.id)
+        flash[:notice] = "you have updated user successfullyy"
+  		  redirect_to user_path(@user.id)
   end
 
   private

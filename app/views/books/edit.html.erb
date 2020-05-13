@@ -1,12 +1,11 @@
 <div class="body">
 	<div class="container">
-		<!-- <p id="notice"></p> -->
 
 		<div class="row">
 			<div class="col-md-6 col-md-offset-3">
 				<h1>Editing Book</h1>
 
-				<%= form_for(book) do |f| %>
+				<%= form_for(@book) do |f| %>
 
 				<% if @book.errors.any? %>
 					<p>error</p>
@@ -20,17 +19,17 @@
 				<% end %>
 
 				<div class="field row">
-					<label for="book_title">Title</label>
+					<h3>Title</h3>
 					<%= f.text_field :title %>
 				</div>
 
 				<div class="field row">
-					<label for="book_opinion">Opinion</label>
+					<h3>Opinion</h3>
 					<%= f.text_area :body %>
 				</div>
 
 				<div class="actions row">
-					<%= f.submit 'Update Book', class:"btn btn-lg btn-block btn-base-1 mt-20" %>
+					<%= f.submit 'Update Book', class:"btn btn-primary btn-lg btn-block" %>
 				</div>
 
 				<% end %>

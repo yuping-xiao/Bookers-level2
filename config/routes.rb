@@ -7,4 +7,8 @@ Rails.application.routes.draw do
 
   resources :users, only: [:show, :index, :edit, :update]
 
+  resources :homes, only: [:top, :about]
+
+  get "home/about" => "homes#about"
+
 end
