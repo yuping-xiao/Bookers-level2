@@ -17,22 +17,19 @@
 				<% end %>
 
 
-		<div class="field">
-			<label class="control-label sr-only" for="inputEmail">Name</label>
-			<%= f.text_field :name, autofocus: true, class:"form-control", id:"inputEmail", placeholder:"名前" %>
+		<div class="form-group">
+			<label class="">Name</label>
+			<%= f.text_field :name %>
 		</div>
 
 		<div class="field">
-			<div class="user-edit-image">
-			<%= attachment_image_tag @user, :profile_image, :fill, 60, 60, class: "img-square pull-left profile-thumb", fallback: "no_image.jpg" %>
-			</div>
 
-			<label class="control-label sr-only" for="inputEmail">Image</label>
-			<%= f.attachment_field :profile_image, placeholder: "Choose file", class: "user-edit-form" %>
+			<label class="" >Image</label>
+			<%= f.attachment_field :profile_image %>
 		</div>
 
 		<div class="field">
-			<label class="user-introduction" for="inputEmail">Introduction</label>
+			<label class="user-introduction" >Introduction</label>
 			<%= f.text_area :introduction, class: "user-introduction-form" %>
 		</div>
 
