@@ -10,7 +10,10 @@ Rails.application.routes.draw do
   	resource :favorites, only: [:create, :destroy]
   end
 
-  resources :users, only: [:show, :index, :edit, :update]
+  resources :users, only: [:show, :index, :edit, :update] do
+
+    resources :relationships, only: [:show, :index, :create, :destroy]
+  end
 
   resources :homes, only: [:top, :about]
 
